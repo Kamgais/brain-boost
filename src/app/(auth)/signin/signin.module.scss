@@ -1,0 +1,143 @@
+@import '../../../styles/colors';
+@import '../../../styles/responsive';
+
+
+
+.signin_container {
+    background-color: $primary;
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+
+
+    .signin_box {
+            width: 90%;
+            max-width: 1000px;
+        
+       
+        background-color: white;
+       
+        
+        display: flex;
+      
+        border-radius: 20px;
+        
+
+
+        .signin_box_left {
+            @include xs {
+                width: 100%;
+            }
+            @include md {
+                width: 50%;
+            }
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            
+
+
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                width: 100%;
+                max-width: 423px;
+                height: 100%;
+                
+            }
+
+        }
+    }
+}
+
+
+.signin_box_actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    align-items: center;
+    height: 125px;
+    justify-content: space-between;
+}
+
+
+.signin_box_right {
+    @include xs {
+        display: none;
+    }
+    @include md {
+        display: block;
+    }
+    width: 50%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+    }
+}
+
+.signin_box_formcontrol {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+
+
+    label {
+        font-weight: 300;
+        font-size: 14;
+    }
+
+    input {
+        width: 100%;
+        height: 60px;
+        padding: 10px;
+        border-radius: 7px;
+        outline: none;
+        border: 1px solid $unable;
+        font-family: inherit;
+
+
+
+
+        &:focus {
+            border: 2px solid $primary;
+        }
+
+    }
+}
+
+.bblogo {
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+ 
+    &:hover {
+     transform: scale(1.1);
+    }
+ 
+ }
+
+.signin_box_linked {
+    display: flex;
+    gap: 5px;
+}
+
+
+.signin_box_formcontrol_showpwd {
+    position: absolute;
+    top: 56%;
+    right: 10px;
+    cursor: pointer;
+}

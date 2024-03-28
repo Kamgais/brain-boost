@@ -1,3 +1,7 @@
+
+
+
+
 .container{
     display: flex;
     flex-wrap: wrap;
@@ -6,8 +10,20 @@
 
 }
 
+
+
+
 .main {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 20px;
+
+
+  
+}
+
+
+.paragraph {
+    width: 100vw;
+    text-align: center;
 }

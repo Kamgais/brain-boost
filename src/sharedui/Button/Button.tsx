@@ -1,14 +1,14 @@
 "use client";
 
-import classes from './button.module.scss'
+
 import { useState } from 'react';
 
 
 interface ButtonProps  {
    size:  "small" | "medium" | "large";
-   variant?: "accent" | "secondary" | "outline-primary" |  "outline-secondary" | "disabled" | "ico" |"danger";
+   variant?: "accent" | "secondary" | "outline-primary" |  "gray" | "disabled" | "ico" |"danger";
    icon?:any;
-   rounded: string;
+   rounded: "md" | "lg" | "full";
    iconTheme?: "accent" | "secondary" | "gray";
    iconPosition?: "left"| "right";
    disabled?: boolean;
@@ -33,9 +33,10 @@ function Button({
     let sizeStyles: any;
     let defaultStyles = {
         outline: 'none',
-        borderRadius: rounded === 'rounded-md' ? '7px': '50px',
+        borderRadius: rounded === 'md' ? '7px': '50px',
         cursor: 'pointer',
         transition: 'all 0.2s ease-out',
+        fontFamily: 'inherit'
     }
     let icoSize: number = 0;
 
@@ -66,7 +67,23 @@ function Button({
             };
             break;
         case "ico":
-            variantStyles = "";
+            if(iconTheme === 'accent') {
+                variantStyles = {
+                    backgroundColor: isHovered ?'#2acaf1': '#029FC8',
+                    borderWidth: '0px',
+                    color: 'white',
+                    borderRadius: '50%'
+                };
+            }
+            if(iconTheme === 'secondary') {
+                variantStyles = {
+                backgroundColor: isHovered ? '#28C4E8' : '#047D99',
+                borderWidth: '0px',
+                color: '#f3f3f3'
+                }; 
+            }
+            
+
             break;
         case "outline-primary":
             variantStyles = {
@@ -78,10 +95,11 @@ function Button({
 
             };
             break;
-        case "outline-secondary":
+        case "gray":
             variantStyles = {
                 backgroundColor: isHovered? '#EAEAEA': '#EAEAEA',
                 color: '#878787',
+                fontWeight: 'regular',
                 border: 'none'
                 
 
@@ -123,9 +141,10 @@ function Button({
             break;
         case "large":
             sizeStyles = {
-                fontWeight: 'bold',
+                 fontWeight: 'bold',
                 fontSize: '15px',
-                width: 423,
+                maxWdth: '423px',
+                width: '100%',
                 height: 52, 
             };
             break;
@@ -142,7 +161,9 @@ function Button({
    onMouseEnter={() => setHovered(true)}
    onMouseLeave={() => setHovered(false)}
    >
-        {children}
+    {
+        icon && variant === 'ico' ? <>{icon}</> : <>{children}</>
+    }
    </button>
   
    </>
