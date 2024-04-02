@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import Providers from "@/providers";
 import "./globals.css";
 
-const inter = Outfit(
+const outfit = Outfit(
   { subsets: ["latin"] ,
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"]
 });
@@ -18,8 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={outfit.className}>
+        <Providers>
+        {children}
+        </Providers>
+        </body>
     </html>
+    
   );
 }

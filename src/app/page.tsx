@@ -1,47 +1,25 @@
-import Typography from "@/sharedui/Typography/Typography";
-import Button from "@/sharedui/Button/Button";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/_options";
 import styles from "./page.module.css";
+import { sendMail } from "@/lib/sendMail";
 
 
-export default function Home() {
+export default async function Home() {
+  // await sendMail({
+  //   to: 'cyrilheike@yahoo.com',
+  //   subject: 'test',
+  //   body: 'hello world'
+  // })
+  const session = await getServerSession(authOptions)
   return (
     <>
-    <div className={styles.main}>
-      <p className={styles.paragraph}>----------------------------------------Variant Changes-----------------------------------------</p>
-   <Button variant="accent" size="large" rounded="md">
-    Accent
-   </Button>
-   <Button variant="secondary" size="large" rounded="md">
-    Secondary
-   </Button>
-   <Button variant="outline-primary" size="large" rounded="md">
-   Outline-primary
-   </Button>
-   <Button variant="gray" size="large" rounded="md">
-   Gray
-   </Button>
-   <Button variant="disabled" size="large" rounded="md">
-   Disabled
-   </Button>
-   <Button variant="danger" size="large" rounded="md">
-   Danger
-   </Button>
-
-    </div>
-    <div className={styles.main}>
-      <p className={styles.paragraph}>----------------------------------------Size Changes-----------------------------------------</p>
-   <Button variant="accent" size="small" rounded="md">
-    Small
-   </Button>
-   <Button variant="secondary" size="medium" rounded="md">
-    Medium
-   </Button>
-   <Button variant="outline-primary" size="large" rounded="md">
-   Large
-   </Button>
-   
-
-    </div>
+   {
+    session?.user?.username ? (
+      <div>{session.user.username}</div>
+    ) : (
+      <div>No logged in</div>
+    )
+   }
     </>
   );
 }

@@ -13,6 +13,7 @@ interface ButtonProps  {
    iconPosition?: "left"| "right";
    disabled?: boolean;
    isLoading?: boolean;
+   type?: "button" | "submit";
    children?: React.ReactNode;
 }
 function Button({
@@ -24,6 +25,7 @@ function Button({
     disabled,
     rounded,
     isLoading,
+    type = "button",
     children
 }: ButtonProps) {
 
@@ -154,8 +156,7 @@ function Button({
   return (
    <>
    <button
-   type='button'
-   onClick={() => console.log('click')}
+   type={type}
    style={{...defaultStyles, ...sizeStyles,...variantStyles}}
    disabled={disabled}
    onMouseEnter={() => setHovered(true)}
