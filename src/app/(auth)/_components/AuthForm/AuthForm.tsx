@@ -79,7 +79,7 @@ const AuthForm = ({type}: AuthFormProps) => {
         }
       
         console.log(data);
-        reset();
+       
     }
 
     const createUser = async(user: User) => {
@@ -87,6 +87,7 @@ const AuthForm = ({type}: AuthFormProps) => {
             const newUser = await registerUser(user);
             toast.success('User registered successfully.')
             console.log(newUser)
+            reset();
         } catch (error:any) {
             toast.error(error.message)
             console.log(error)
@@ -110,6 +111,7 @@ const AuthForm = ({type}: AuthFormProps) => {
                 return ;
             }
             toast.success('Welcome 👋 to Brainboost')
+            reset();
             router.push('/')
         
        }
@@ -197,6 +199,12 @@ const AuthForm = ({type}: AuthFormProps) => {
                             type === 'SIGNUP' ? 'Sign up with Google' : 'Sign in with Google'
                         }
                     </Button>
+
+                   {
+                    type === 'SIGNIN' && (
+                        <Link href='/forgot'>Forgot password ?</Link>
+                    )
+                   }
                 </div>
 
             </form>
