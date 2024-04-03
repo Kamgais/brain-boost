@@ -1,7 +1,7 @@
 'use client';
 
 import Typography from '@/sharedui/Typography/Typography';
-import classes from './reset.module.scss';
+import classes from './resetForm.module.scss';
 import Image from 'next/image';
 import Button from '@/sharedui/Button/Button';
 import { IoLockOpen } from 'react-icons/io5';
@@ -11,9 +11,16 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Tooltip } from '@nextui-org/tooltip';
+import { resetPassword } from '@/lib/actions/resetPassword';
+import { toast } from 'react-toastify';
 
 
-function ResetPasswordPage() {
+interface Props {
+    token: string;
+}
+
+
+function ResetForm({token}: Props) {
 
     const resetPasswordSchema = z.object({
         password: z.string()
@@ -45,8 +52,14 @@ function ResetPasswordPage() {
     const [showPwd, setShowPwd] = useState(false);
 
 
-    const onSubmit: SubmitHandler<ResetPasswordFields> = (data: ResetPasswordFields) => {
-
+    const onSubmit: SubmitHandler<ResetPasswordFields> = async (data: ResetPasswordFields) => {
+        try {
+            const result = await resetPassword(token, data.password);
+           if(result === 'sucess') toast.success('Your password has been reset successfully')
+        } catch (error:any) {
+            console.log(error);
+            toast.error(error.message);
+        }
     }
   return (
     <div className={classes.reset_container}>
@@ -93,4 +106,4 @@ function ResetPasswordPage() {
   )
 }
 
-export default ResetPasswordPage
+export default ResetForm

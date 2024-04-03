@@ -10,6 +10,8 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { Tooltip } from '@nextui-org/tooltip';
+import { requestResetPassLink } from '@/lib/actions/requestResetPassLink';
+import { toast } from 'react-toastify';
 
 function ForgotPasswordPage() {
     const forgotPasswordSchema = z.object({
@@ -26,8 +28,16 @@ function ForgotPasswordPage() {
         resolver: zodResolver(forgotPasswordSchema)
     });
 
-    const onSubmit: SubmitHandler<ForgotPasswordFields> = (data: ForgotPasswordFields) => {
-        console.log(data)
+    const onSubmit: SubmitHandler<ForgotPasswordFields> = async(data: ForgotPasswordFields) => {
+
+        try {
+            await requestResetPassLink(data.email);
+           toast.success('Reset password link was sent to your email.')
+           reset();
+        } catch (error) {
+            console.log(error)
+            toast.error('Something went wrong')
+        }
     }
   return (
     <div className={classes.forgot_container}>

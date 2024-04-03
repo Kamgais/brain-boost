@@ -4,10 +4,11 @@ import { User } from '@prisma/client';
 import { render } from '@react-email/render';
 import nodemailer from 'nodemailer';
 import { signJWT } from './jwt';
+import ResetPasswordEmail from '@/emails/reset-password';
 type Params = {
     to: string,
     subject: string,
-    type: "confirm" | "welcome",
+    type: "confirm" | "welcome" | "reset",
     user: User
 }
 
@@ -20,6 +21,7 @@ export async function sendMail({to, subject, user, type}: Params) {
         id: user.id
     })
     const activationURL = `${NEXTAUTH_URL}/activation/${jwtUserId}`
+    const resetPasswordLink = `${NEXTAUTH_URL}/reset/${jwtUserId}`
 
     switch(type) {
         case "welcome": 
@@ -29,6 +31,10 @@ export async function sendMail({to, subject, user, type}: Params) {
         case "confirm":
             html = render(ConfirmEmail({userFirstname: user.username!, activationURL}));
         break;
+
+        case "reset": 
+            html = render(ResetPasswordEmail({userFirstname: user.username!, resetPasswordLink}));
+            break;
     }
    
     const {SMTP_EMAIL, SMTP_PASS} = process.env;
