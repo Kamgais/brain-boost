@@ -53,14 +53,14 @@ function Button({
             break;
         case "secondary":
             variantStyles = {
-                backgroundColor: isHovered ? '#28C4E8' : '#047D99',
+                backgroundColor: isHovered ? 'rgb(5, 162, 197)' : '#047D99',
                 borderWidth: '0px',
                 color: '#f3f3f3'
             };
             break;
         case "disabled":
             variantStyles = {
-                backgroundColor:  '#B0B0B0',
+                backgroundColor: '#B0B0B0',
                 border: 'none',
                 cursor: 'not-allowed',
                 borderWidth: '1px',

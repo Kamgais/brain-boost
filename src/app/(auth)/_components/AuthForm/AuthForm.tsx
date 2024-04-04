@@ -66,7 +66,6 @@ const AuthForm = ({type}: AuthFormProps) => {
     });
 
     useEffect(() => {
-        console.log('data')
         setPassStrength(passwordStrength(watch().password).id)
     },[watch().password])
     
@@ -77,8 +76,6 @@ const AuthForm = ({type}: AuthFormProps) => {
         if(type === 'SIGNIN') {
             await loginAsUser(data);
         }
-      
-        console.log(data);
        
     }
 
@@ -146,7 +143,7 @@ const AuthForm = ({type}: AuthFormProps) => {
                     type === 'SIGNUP' && (
                         
                         <div className={classes.auth_box_formcontrol}>
-                            <label htmlFor="email">Enter your email</label>
+                            <label htmlFor="email" style={{color: !!errors.email?.message ? '#f54180' : ''}}>Enter your email</label>
                             <Tooltip color='danger' content={errors.email?.message as string}  isOpen={!!errors.email?.message} showArrow>
                             <input id='email' type="text" placeholder='Ex: johndoe@brainboost.com' {...register('email')} style={{borderColor: !!errors.email?.message ? '#f54180' : ''}} />
                             </Tooltip>
@@ -159,7 +156,7 @@ const AuthForm = ({type}: AuthFormProps) => {
                
 
                 <div className={classes.auth_box_formcontrol}>
-                    <label htmlFor="username">{type === 'SIGNUP' ? 'Enter a username': 'Enter your username'} </label>
+                    <label htmlFor="username" style={{color: !!errors.username?.message ? '#f54180' : ''}}>{type === 'SIGNUP' ? 'Enter a username': 'Enter your username'} </label>
                     <Tooltip color='danger' content={errors.username?.message as string}  isOpen={!!errors.username?.message} showArrow>
                     <input id='username' type="text" placeholder='Ex: johndoe' {...register('username')} style={{borderColor: !!errors.username?.message ? '#f54180' : ''}}/>
                     </Tooltip>
@@ -167,7 +164,7 @@ const AuthForm = ({type}: AuthFormProps) => {
                 </div>
 
                 <div className={classes.auth_box_formcontrol}>
-                    <label htmlFor="password">{type === 'SIGNUP' ? 'Enter a password': 'Enter your password'}</label>
+                    <label htmlFor="password" style={{color: !!errors.password?.message ? '#f54180' : ''}}>{type === 'SIGNUP' ? 'Enter a password': 'Enter your password'}</label>
                     <Tooltip color='danger' content={errors.password?.message as string}  isOpen={!!errors.password?.message} showArrow>
                     <input id='password' type={showPwd ? 'text' : 'password'} placeholder='Ex: madameBovary09@' {...register('password')} style={{borderColor: !!errors.password?.message ? '#f54180' : ''}}/>
                     </Tooltip>
@@ -202,7 +199,7 @@ const AuthForm = ({type}: AuthFormProps) => {
 
                    {
                     type === 'SIGNIN' && (
-                        <Link href='/forgot'>Forgot password ?</Link>
+                        <Link href='/forgot' className={classes.auth_box_forgotLink}>Forgot password ?</Link>
                     )
                    }
                 </div>
@@ -219,7 +216,7 @@ const AuthForm = ({type}: AuthFormProps) => {
                 type === 'SIGNUP' ? 'Already have an account?' : "You don't have an account ?"
             }
         </Typography>
-        <Link href={type === 'SIGNUP' ? '/signin': '/register'}>
+        <Link href={type === 'SIGNUP' ? '/signin': '/register'} >
             {
                 type === 'SIGNUP' ? 'Sign in' : 'Sign up'
             }
@@ -227,7 +224,8 @@ const AuthForm = ({type}: AuthFormProps) => {
       </div>
       <Alert 
       isOpen={isAlertModalOpen} 
-      content='🚀 Before you can access BrainBoost, please verify your email address. 📧' 
+      setAlertModalOpen={setAlertModalOpen}
+      content='🚀 Before you can access BrainBoost, please verify your email address. 📧 We sent you an 🔐activation mail. Check your Dms🔎.' 
       title='📧 Verify your Email' 
       action={
         {

@@ -164,3 +164,11 @@
     top: 56%;
     left: 10px;
 }
+
+.auth_box_forgotLink {
+
+    &:hover {
+        color: rgb(104, 104, 104);
+        transition: color 0.3s ease-in;
+    }
+}

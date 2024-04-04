@@ -13,10 +13,11 @@ interface Props {
     }
     content: string;
     title: string;
+    setAlertModalOpen: (open: boolean) => void
 
 }
 
-const Alert = ({isOpen, action, content, title}: Props) => {
+const Alert = ({isOpen, action, content, title, setAlertModalOpen}: Props) => {
     const {onClose, isOpen:open, onOpen} = useDisclosure();
 
     useEffect(() => {
@@ -32,14 +33,19 @@ const Alert = ({isOpen, action, content, title}: Props) => {
         action?.func();
         onClose();
     }
+
+    const closeModal = () => {
+      setAlertModalOpen(false);
+      onClose();
+    }
   return (
     <Modal 
     backdrop="blur"
     isOpen={open} 
-    onClose={onClose} 
+    onClose={closeModal} 
   >
     <ModalContent>
-      {(onClose) => (
+      {(closeModal) => (
         <>
           <ModalHeader className="flex flex-col gap-1">{title}</ModalHeader>
           <ModalBody>
@@ -48,7 +54,7 @@ const Alert = ({isOpen, action, content, title}: Props) => {
             </p>
           </ModalBody>
           <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
+                <Button color="danger" variant="light" onPress={closeModal}>
                   Close
                 </Button>
                 <Button color="primary" onPress={actionFunc}>

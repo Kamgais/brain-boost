@@ -54,7 +54,7 @@ function ForgotPasswordPage() {
         </Typography>
         <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className={classes.forgot_input}>
-            <label htmlFor="email">Enter your email</label>
+            <label htmlFor="email" style={{color: !!errors.email?.message ? '#f54180' : ''}}>Enter your email</label>
             <Tooltip color='danger' content={errors.email?.message as string}  isOpen={!!errors.email?.message} showArrow>
             <input {...register('email')} type="text" placeholder='Ex: johndoe@brainboost.com' style={{borderColor: !!errors.email?.message ? '#f54180' : ''}}/>
             </Tooltip>
@@ -63,7 +63,7 @@ function ForgotPasswordPage() {
         <Button size='large' rounded='md' disabled={isSubmitting} variant={isSubmitting? 'disabled': 'secondary'}  type='submit'>
             Request reset link
         </Button>
-        <Link href='/signin'>
+        <Link href='/signin' className={classes.forgot_box_loginLink}>
         Back to login
         </Link>
         </form>

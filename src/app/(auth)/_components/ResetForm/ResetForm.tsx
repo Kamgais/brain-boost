@@ -13,6 +13,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { Tooltip } from '@nextui-org/tooltip';
 import { resetPassword } from '@/lib/actions/resetPassword';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
 
 
 function ResetForm({token}: Props) {
+    const router = useRouter();
 
     const resetPasswordSchema = z.object({
         password: z.string()
@@ -43,7 +45,7 @@ function ResetForm({token}: Props) {
         confirmPassword: ''
     }
 
-    const {register, formState: {isSubmitting, errors}, handleSubmit} = useForm<ResetPasswordFields>({
+    const {register, formState: {isSubmitting, errors}, handleSubmit, reset} = useForm<ResetPasswordFields>({
         defaultValues: resetPasswordDefaultValues,
         resolver: zodResolver(resetPasswordSchema)
     })
@@ -55,7 +57,11 @@ function ResetForm({token}: Props) {
     const onSubmit: SubmitHandler<ResetPasswordFields> = async (data: ResetPasswordFields) => {
         try {
             const result = await resetPassword(token, data.password);
-           if(result === 'sucess') toast.success('Your password has been reset successfully')
+           if(result === 'sucess') {
+            toast.success('Your password has been reset successfully')
+            reset();
+            router.push('/signin')
+           }
         } catch (error:any) {
             console.log(error);
             toast.error(error.message);
