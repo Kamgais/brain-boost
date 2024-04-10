@@ -1,0 +1,125 @@
+@import '../../styles/colors';
+@import '../../styles/responsive';
+
+.appNavbar_container {
+    @include xs {
+        width: 100vw;
+        background-color: white;
+    }
+
+    @include xl {
+    border-radius: 40px;
+    background-color: rgba(252, 252, 252, 0.61);
+    width: 80vw;
+    }
+   position: relative;
+    display: flex;
+   
+    height: 60px;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    align-items: center;
+    padding: 10px;
+   
+
+
+
+    .appNavbar_links {
+        @include xs {
+            display: none;
+        }
+
+        @include md {
+        display: flex;
+        gap: 50px;
+        }
+        
+        
+
+        .appNavbar_link {
+            color: $black;
+            transition: color 0.2s ease-in-out;
+
+            &:hover {
+             color: $primary;
+            }
+        }
+       
+
+
+    }
+
+
+
+}
+
+
+.appNavbar_actions {
+    @include xs {
+        display: none;
+    }
+
+    @include md {
+    display: flex;
+    }
+    
+    gap: 30px;
+}
+
+.appNavbar_userdetails {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.appNavbar_link_active {
+    color: $primary;
+}
+
+.appNavbar_logo {
+    cursor: pointer;
+}
+
+.navBurgerMenu {
+    @include md {
+        display: none;
+    }
+
+
+    .navBurgerMenu_search {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: relative;
+       input {
+        width: 95%;
+        outline: none;
+        border-bottom: 2px solid rgb(156, 156, 156);
+        padding: 10px;
+        padding-left: 25px;
+       }
+    }
+}
+
+.navBurgerMenu_icon {
+    position: absolute;
+    left: 3%;
+    top: 35%;
+}
+
+.popOverContent {
+    width: 80vw;
+    height: 400px;
+   padding: 30px 20px;
+
+
+    ul {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+       gap: 30px;
+    }
+}

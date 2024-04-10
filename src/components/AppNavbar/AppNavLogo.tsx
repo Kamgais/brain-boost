@@ -1,0 +1,17 @@
+'use client';
+import Image from "next/image"
+import classes from './appNavbar.module.scss';
+import { useRouter } from "next/navigation";
+
+export default function AppNavLogo() {
+    const router = useRouter();
+
+    const goToHome = () => {
+        router.push('/')
+    }
+  return (
+    <div className={classes.appNavbar_logo} onClick={goToHome}>
+    <Image src='/images/appLogo.png' width={40} height={40} alt="logo"/>
+    </div>
+  )
+}

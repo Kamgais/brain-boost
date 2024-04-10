@@ -7,7 +7,7 @@ export type User = {
  email: string,
  password: string,
  pic: string,
- role: Role | null
+ role: Role 
 }
 
 export type SignUpUser = Pick<User, 'username' | 'email' | 'password'>;
