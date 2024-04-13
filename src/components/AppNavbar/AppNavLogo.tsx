@@ -11,7 +11,7 @@ export default function AppNavLogo() {
     }
   return (
     <div className={classes.appNavbar_logo} onClick={goToHome}>
-    <Image src='/images/appLogo.png' width={40} height={40} alt="logo"/>
+    <Image src='/images/bblanding.png' width={100} height={100} alt="logo"/>
     </div>
   )
 }

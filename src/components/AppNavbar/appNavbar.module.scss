@@ -9,11 +9,18 @@
 
     @include xl {
     border-radius: 40px;
-    background-color: rgba(252, 252, 252, 0.61);
+    background-color: rgba(252, 252, 252, 0.979);
     width: 80vw;
+    position: fixed;
+    z-index: 100;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     }
-   position: relative;
+    position: relative;
     display: flex;
+   
+    
    
     height: 60px;
     justify-content: space-between;

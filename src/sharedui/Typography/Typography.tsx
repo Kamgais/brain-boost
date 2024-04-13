@@ -25,7 +25,7 @@ function Typography({variant = "paragraph",component: Component = "div", theme =
   switch(variant) {
     case "headline" : 
       variantStyles = {
-        fontSize: width <= 1200 ? 32:48,
+        fontSize: 48,
         fontWeight: 'bold'
       }
       break;

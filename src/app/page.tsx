@@ -35,10 +35,6 @@ export default async function Home() {
      <div className={classes.home_getStarted_section}>
       <GetStartedSection/>
      </div>
-
-     <div className={classes.home_footer_section}>
-      <AppFooter/>
-     </div>
    
     </div>
   );
