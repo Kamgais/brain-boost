@@ -40,9 +40,9 @@ import {
            Our mission is to make learning and testing more engaging, 
            interactive, and effective for everyone.
             At BrainBoost, we believe in the power of quizzes to enhance knowledge, 
-            boost confidence, and foster a love for learning. Whether you're an educator
-             looking to assess your students' understanding, a team leader wanting to test
-              your team's knowledge, or simply someone eager to expand their knowledge base,
+            boost confidence, and foster a love for learning. Whether you&apos;re an educator
+             looking to assess your students&apos; understanding, a team leader wanting to test
+              your team&apos;s knowledge, or simply someone eager to expand their knowledge base,
                BrainBoost is designed to cater to your needs.
           </Text>
           <Section style={btnContainer}>

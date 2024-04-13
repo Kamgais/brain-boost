@@ -26,7 +26,7 @@ const Alert = ({isOpen, action, content, title, setAlertModalOpen}: Props) => {
         } else {
             onClose()
         }
-    },[isOpen])
+    },[isOpen, onClose, onOpen])
 
 
     const actionFunc = () =>  {

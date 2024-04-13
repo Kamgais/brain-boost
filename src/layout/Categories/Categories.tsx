@@ -44,7 +44,7 @@ function Categories() {
         <div className={classes.categorySection_down}>
             {
                 categories.map((category,index) => (
-                    <div className={classes.categorySection_down_item} style={{backgroundColor: category.color}}>
+                    <div className={classes.categorySection_down_item} style={{backgroundColor: category.color}} key={index}>
                         <Image src={category.image} width={150} height={142} alt='category image'/>
                         <Typography variant='paragraph' component='p' theme='gray' >{category.label}</Typography>
                     </div>
