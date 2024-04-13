@@ -1,0 +1,77 @@
+@import '../../styles/colors';
+@import '../../styles/responsive';
+
+
+.tipSection_container {
+    @include xs {
+        flex-direction: column;
+    }
+
+    @include md {
+        flex-direction: row;
+    }
+    width: 100%;
+    display: flex;
+    position: relative;
+
+
+
+    .tipSection_blue_div {
+        @include xs {
+            width: 100%;
+            justify-content: center;
+        }
+        @include md {
+            width: 50%;
+            justify-content: flex-start;
+        }
+        
+        height: 301px;
+        background-color: $secondary-bright;
+        display: flex;
+        align-items: center;
+        border-radius: 15px  0 0 15px;
+        padding: 30px;
+    }
+
+
+    .tipSection_gray_div {
+        @include xs {
+            width: 100%;
+            justify-content: center;
+
+        }
+        @include md {
+            width: 50%;
+            justify-content: right;
+        }
+       // width: 955px;
+        
+        height: 301px;
+        background-color: rgba(235, 232, 232, 0.582);
+        // position: relative;
+        // bottom: 20px;
+        // left: -200px;
+        // z-index: -1;
+        display: flex;
+        align-items: center;
+       
+        border-radius: 0 15px 15px 0;
+        padding: 30px;
+    }
+
+
+    .tipSection_image {
+        position: absolute;
+        left: 38%;
+        top: 20%;
+        width: 608px;
+        height: 230px;
+
+
+     img{
+        width: 60%;
+        object-fit: cover;
+     }
+    }
+}

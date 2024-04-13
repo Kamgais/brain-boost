@@ -1,4 +1,6 @@
+'use client';
 
+import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 
 
 interface Props {
@@ -14,6 +16,8 @@ interface Props {
 
 function Typography({variant = "paragraph",component: Component = "div", theme = "black", weight = "regular" , style, children}: Props) {
 
+  const { width, height } = useWindowDimensions();
+  
   let variantStyles: any;
   let weightStyles:any;
   let themeStyles: any;
@@ -21,7 +25,7 @@ function Typography({variant = "paragraph",component: Component = "div", theme =
   switch(variant) {
     case "headline" : 
       variantStyles = {
-        fontSize: 48,
+        fontSize: width <= 1200 ? 32:48,
         fontWeight: 'bold'
       }
       break;

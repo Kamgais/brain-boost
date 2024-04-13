@@ -1,0 +1,101 @@
+@import '../../styles/responsive';
+@import '../../styles/colors';
+
+.discoverSection_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+
+
+    .discoverSection_top {
+        display: flex;
+        align-items: center;
+        
+        justify-content: space-between;
+    }
+
+
+    .discoverSection_down {
+        @include xs {
+            overflow-x: scroll;
+        }
+
+        @include lg {
+            overflow-x: initial;
+        }
+        width: 100%;
+        padding-bottom: 15px;
+        display: grid;
+       // overflow-x: scroll;
+        scrollbar-color: $primary white;
+        scrollbar-width: auto;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+
+.discoverSection_down_quiz_item {
+    width: 100%;
+    min-width: 220px;
+    height: 320px;
+    padding-bottom: 10px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    background-color: white;
+  //  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transition: all 0.3s  ease-out;
+ // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+
+    .discoverSection_down_quiz_item_imageBox {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        overflow: hidden;
+
+
+        img {
+            width: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease-out;
+        }
+    }
+
+    .discoverSection_down_quiz_item_title {
+        width: 100%;
+        padding-left: 20px;
+
+    }
+
+    .discoverSection_down_quiz_item_author {
+        width: 100%;
+        padding-left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+
+    &:hover {
+        cursor: pointer;
+       // box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+      // box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+      box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+        img {
+            transform: scale(1.5);
+        }
+    }
+
+}

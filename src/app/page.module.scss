@@ -1,0 +1,73 @@
+@import '../styles/responsive';
+
+.home_container {
+    min-width: 100vw;
+    @include xs {
+        gap: 50px;
+    }
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(182, 180, 180, 0.137);
+}
+
+
+
+
+.home_discover_section {
+    @include xs {
+        width: 95vw;
+    }
+
+    @include xl{
+    width: 80vw;
+    }
+   
+    margin: 0 auto;
+}
+
+
+.home_tip_section {
+    @include xs {
+        width: 95vw;
+    }
+
+    @include xl{
+    width: 80vw;
+    }
+   
+    margin: 0 auto;
+}
+
+
+.home_topAuthors_section {
+    @include xs {
+        width: 95vw;
+    }
+
+    @include xl{
+    width: 80vw;
+    }
+    margin: 0 auto;
+}
+
+.home_category_section {
+    @include xs {
+        width: 95vw;
+    }
+
+    @include xl{
+    width: 80vw;
+    }
+    margin: 0 auto;
+}
+
+.home_getStarted_section {
+    @include xs {
+        width: 95vw;
+    }
+
+    @include xl{
+    width: 80vw;
+    }
+    margin: 0 auto;
+}
