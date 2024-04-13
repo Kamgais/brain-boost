@@ -15,6 +15,7 @@ interface ButtonProps  {
    isLoading?: boolean;
    type?: "button" | "submit";
    children?: React.ReactNode;
+   style?: any
 }
 function Button({
     size = "medium",
@@ -26,7 +27,8 @@ function Button({
     rounded,
     isLoading,
     type = "button",
-    children
+    children,
+    style
 }: ButtonProps) {
 
     const [isHovered, setHovered] = useState(false);
@@ -157,7 +159,7 @@ function Button({
    <>
    <button
    type={type}
-   style={{...defaultStyles, ...sizeStyles,...variantStyles}}
+   style={{...defaultStyles, ...sizeStyles,...variantStyles,...style}}
    disabled={disabled}
    onMouseEnter={() => setHovered(true)}
    onMouseLeave={() => setHovered(false)}

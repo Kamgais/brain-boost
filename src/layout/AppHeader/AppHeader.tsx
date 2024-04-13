@@ -1,7 +1,10 @@
+
 import AppNavbar from "@/components/AppNavbar/AppNavbar"
 import Typography from "@/sharedui/Typography/Typography"
 import AppSearchBar from "./AppSearchBar"
 import classes from './appHeader.module.scss';
+
+
 
 
 function AppHeader() {
@@ -10,7 +13,7 @@ function AppHeader() {
       <AppNavbar/>
 
     <div className={classes.appHeader_headline}>
-       <Typography variant="headline" theme="white">Challenge your brain everyday with <span>BrainBoost</span></Typography> 
+       <Typography variant="headline" theme="white">Challenge your brain everyday with <span className="animate__animated animate__bounce">BrainBoost</span></Typography> 
     </div>
       
       <div className={classes.appHeader_search}>
