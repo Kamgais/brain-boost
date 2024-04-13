@@ -21,7 +21,7 @@ function TopAuthors() {
                {
                 [1,2,3,4,5,6,7].map((_,index) => {
                     return (
-                        <div className={classes.topAuthors_down_item}>
+                        <div className={classes.topAuthors_down_item} key={index}>
                             <Avatar/>
                             <Typography variant="paragraph" component="p" theme='gray'>Anna Regan</Typography>
                         </div>

@@ -46,7 +46,7 @@ function DiscoverSection() {
          {
             [1,2,3,4,5].map((_,index) => {
                 return (
-                    <div className={classes.discoverSection_down_quiz_item}>
+                    <div className={classes.discoverSection_down_quiz_item} key={index}>
                         <div className={classes.discoverSection_down_quiz_item_imageBox} >
                             <Image src={`/images/quiz_test${index+1}.jpg`} width={300} height={300} alt=""/>
                             <Typography variant="paragraph" component="span" style={quizLabelStyle}>7 Qs</Typography>

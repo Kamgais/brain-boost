@@ -67,7 +67,7 @@ const AuthForm = ({type}: AuthFormProps) => {
 
     useEffect(() => {
         setPassStrength(passwordStrength(watch().password).id)
-    },[watch().password])
+    },[watch().password, watch])
     
     const onSubmit = async (data:any) => {
         if(type === 'SIGNUP') {
