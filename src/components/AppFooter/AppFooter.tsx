@@ -31,7 +31,7 @@ function AppFooter() {
         <form className={classes.appFooter_stayTuned_input}>
           <label htmlFor="email">Email address</label>
           <input type="text" placeholder='Enter your email' />
-          <Button size='medium' rounded='md' style={{backgroundColor: '#E5A900'}}>Subscribe to our newsletter</Button>
+          <Button size='large' rounded='md' style={{backgroundColor: '#E5A900'}}>Subscribe to our newsletter</Button>
         </form>
           
         </div>

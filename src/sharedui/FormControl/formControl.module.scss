@@ -1,0 +1,93 @@
+
+@import '../../styles/colors';
+
+.formControl {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 100%;
+
+    input,select {
+        height: 50px;
+        outline: none;
+        padding-left: 10px;
+        border: 1.5px solid $unable;
+        border-radius: 7px;
+        background-color: rgb(255, 252, 252);
+        font-family: inherit;
+
+
+        &:focus {
+            border: 2px solid $primary;
+        }
+    }
+
+
+    textarea {
+        height: 150px;
+        outline: none;
+        padding: 10px;
+        border: 1.5px solid $unable;
+        border-radius: 7px;
+        background-color: rgb(255, 252, 252);
+        font-family: inherit;
+        resize: none;
+
+        &:focus {
+            border: 2px solid $primary;
+        }
+    }
+
+
+
+    input[type=file] {
+        display: none;
+    }
+
+
+    input[type=radio] {
+        display: none;
+
+        &:checked + label {
+            border-color: $primary;
+        }
+    }
+
+
+    .formControl_upload_label {
+        cursor: pointer;
+        height: 190px;
+        width: 100%;
+        border: 2px solid $primary;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        border-radius: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+   
+}
+
+
+.formControl_radio_container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+
+    label {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        height: 130px;
+        width: 280px;
+        border: 2px solid $unable;
+        border-radius: 15px;
+        cursor: pointer;
+
+    }
+}
+
+

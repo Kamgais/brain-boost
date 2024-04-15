@@ -1,0 +1,117 @@
+@import '../../../styles/colors';
+
+.quizzForm_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.quizzForm_select {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+   
+}
+
+.quizzForm_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.quizzForm_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.quizzForm_step_shower {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+
+    .quizzForm_step_shower_item {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+
+        .quizzForm_step_shower_item_top {
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+
+            span {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+            }
+        }
+
+        .quizzForm_step_shower_bar {
+            width: 100%;
+            border-radius: 7.5px;
+            height: 10px;
+          //  background-color: $emphasis-normal;
+        }
+    }
+}
+
+
+.quizzForm_answers {
+    display: flex;
+    flex-direction: column;
+
+
+    .quizForm_answer_item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+
+
+        .quizForm_answer_item_box {
+            position: relative;
+            width: 200px;
+            height: 60px;
+            border: 1px solid $unable;
+            display: flex;
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease-out;
+
+            img {
+                position: absolute;
+                top: 45%;
+                left: 40%;
+                transform: translate(-50%,-50%);
+                display: none;
+
+
+                &:nth-child(2) {
+                    left: 55%;
+                }
+            }
+
+            &:hover {
+                background-color: #047e9977;
+                color: $unable;
+
+                img {
+                    display: block;
+                }
+            }
+        }
+    }
+}
