@@ -6,7 +6,7 @@ import { useWindowDimensions } from "@/hooks/useWindowDimensions";
 interface Props {
   variant?: "headline" | "middleline" | "subtitle" | "menu" | "paragraph";
   children?: React.ReactNode
-  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "div" | "p" | "span";
+  component?: "h1" | "h2" | "h3" | "h4" | "h5" | "div" | "p" | "span" | "label";
   theme?: "black" | "gray" | "white" | "primary" | "secondary-dark" | "secondary-light" | "secondary-bright";
   weight?: "regular" | "medium" | "bold";
   style?:any

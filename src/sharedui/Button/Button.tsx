@@ -5,17 +5,18 @@ import { useState } from 'react';
 
 
 interface ButtonProps  {
-   size:  "small" | "medium" | "large";
+   size?:  "small" | "medium" | "large";
    variant?: "accent" | "secondary" | "outline-primary" |  "gray" | "disabled" | "ico" |"danger";
    icon?:any;
-   rounded: "md" | "lg" | "full";
+   rounded?: "md" | "lg" | "full";
    iconTheme?: "accent" | "secondary" | "gray";
    iconPosition?: "left"| "right";
    disabled?: boolean;
    isLoading?: boolean;
    type?: "button" | "submit";
    children?: React.ReactNode;
-   style?: any
+   style?: any,
+   handleClick?: () => void
 }
 function Button({
     size = "medium",
@@ -28,7 +29,8 @@ function Button({
     isLoading,
     type = "button",
     children,
-    style
+    style,
+    handleClick
 }: ButtonProps) {
 
     const [isHovered, setHovered] = useState(false);
@@ -36,6 +38,10 @@ function Button({
     let variantStyles: any;
     let sizeStyles: any;
     let defaultStyles = {
+        display: 'flex',
+        gap: '3px',
+        alignItems: 'center',
+        justifyContent: 'center',
         outline: 'none',
         borderRadius: rounded === 'md' ? '7px': '50px',
         cursor: 'pointer',
@@ -75,6 +81,8 @@ function Button({
                 variantStyles = {
                     backgroundColor: isHovered ?'#2acaf1': '#029FC8',
                     borderWidth: '0px',
+                    width: 50,
+                    height: 50,
                     color: 'white',
                     borderRadius: '50%'
                 };
@@ -140,7 +148,7 @@ function Button({
             sizeStyles = {
             fontWeight: 'bold',
               fontSize: '15px',
-              padding: '15px 35px',
+              padding: '15px 75px',
             };
             break;
         case "large":
@@ -163,10 +171,14 @@ function Button({
    disabled={disabled}
    onMouseEnter={() => setHovered(true)}
    onMouseLeave={() => setHovered(false)}
+   onClick={handleClick}
    >
     {
-        icon && variant === 'ico' ? <>{icon}</> : <>{children}</>
+        // icon && variant === 'ico' ? <>{icon}</> : <>{children}</>
+        icon ? variant === 'ico' ? <>{icon}</> : iconPosition === 'left' ? <>{icon} {children}</> : <> {children} {icon}</> : <>{children}</>
     }
+
+   
    </button>
   
    </>
