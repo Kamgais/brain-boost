@@ -115,7 +115,7 @@ function QuizzForm() {
                 <div className={classes.quizForm_answer_item}>
                     {
                         [0,1,2,3].map((_,index) => (
-                            <div className={classes.quizForm_answer_item_box}>
+                            <div className={classes.quizForm_answer_item_box} key={index}>
                             fdgfhfghfghf
                         <Image src='/images/edit_icon.png' width={25} height={25} alt='' className={classes.quizForm_answer_item_box_icon}/>
                         <Image src='/images/delete_icon.png' width={25} height={25} alt='' className={classes.quizForm_answer_item_box_icon}/>
