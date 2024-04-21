@@ -32,7 +32,6 @@ function AppNavbarLinks() {
     appLinks.forEach((link) => {
         link.active = link.href === pathname;
     })
-    console.log(pathname)
   return (
     <ul className={classes.appNavbar_links}>
         {
