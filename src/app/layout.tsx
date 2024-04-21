@@ -23,12 +23,21 @@ export default function RootLayout({
   return (
     
     <html lang="en">
+       
       <body className={outfit.className}>
+      <Providers>
+      
+      <div className="main-container">
       <AppNavbar/>
         {children}
         <AppFooter/>
+      </div>
+        
+        </Providers>
         </body>
+       
     </html>
+   
     
   );
 }

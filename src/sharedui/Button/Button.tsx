@@ -168,7 +168,7 @@ function Button({
    <button
    type={type}
    style={{...defaultStyles, ...sizeStyles,...variantStyles,...style}}
-   disabled={disabled}
+  
    onMouseEnter={() => setHovered(true)}
    onMouseLeave={() => setHovered(false)}
    onClick={handleClick}
